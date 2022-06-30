@@ -4,7 +4,7 @@ const typeDefs = gql`
 type User{
 	id:ID!
 	name: String!
-	username: String!
+	username: String
 	age: Int!
 	nationality: Nationality!
 	friends:[User]
@@ -25,6 +25,10 @@ type Query{
 	movie(name:String!): Movie!              
 
 }
+input updateUsernameInput{
+	id:ID!
+	newUsername: String!
+}
 input createUser{
 	name: String!
 	username: String!
@@ -34,6 +38,7 @@ input createUser{
 }
 type Mutation{
 	createUser(input:createUser!): User
+	updateUsername(input: updateUsernameInput!): User
 }
 
 

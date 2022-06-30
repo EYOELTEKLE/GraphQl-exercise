@@ -37,7 +37,19 @@ const resolvers =
 			const lastId = UserList[UserList.length - 1].id;
 			user.id = lastId + 1;
 			UserList.push(user)
-		}
+		},
+		 updateUsername: (parent, args) => {
+     	const {id, newUsername} = args.input;
+     	let updateUsername;
+     	UserList.forEach((user) => {
+     		if (user.id === Number(id))
+     		{
+     			user.username = newUsername
+     			updateUsername = user
+     		}
+     	})
+     	return updateUsername
+    },
 	}
 }
 module.exports = {resolvers}
