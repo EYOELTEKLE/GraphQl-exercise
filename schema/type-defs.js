@@ -39,6 +39,7 @@ input createUser{
 type Mutation{
 	createUser(input:createUser!): User
 	updateUsername(input: updateUsernameInput!): User
+	deleteUser(id: ID!): User
 }
 
 
